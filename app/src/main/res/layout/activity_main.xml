@@ -6,6 +6,7 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
     <!--layout_goneMarginLeftZ只有被设置为gone的时候才会被调用-->
+
     <TextView
         android:id="@+id/tv1"
         app:layout_goneMarginLeft="10dp"
@@ -54,15 +55,32 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+    <!--app:layout_constraintHorizontal_bias="0.3"类似权重，需要约束LEFT和RIGHT后才有效-->
+    <!--app:layout_constraintTop_toTopOf="@id/tv5"，app:layout_constraintBottom_toBottomOf="@id/tv5"
+    这两者结合使用，相当于垂直居中的效果-->
+
 
     <TextView
         android:id="@+id/tv6"
-        android:layout_marginLeft="100dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="6"
+        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintLeft_toRightOf="@id/tv5"
         app:layout_constraintTop_toTopOf="@id/tv5"
         app:layout_constraintBottom_toBottomOf="@id/tv5"/>
+    <!--官方不推荐在ConstraintLayout中使用match_parent，可以设置 0dp (MATCH_CONSTRAINT)-->
+
+    <TextView
+        android:gravity="center"
+        android:id="@+id/tv7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
+        android:text="7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
